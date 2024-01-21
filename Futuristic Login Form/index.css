@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000;
+    overflow: hidden;
+}
+
+/* 1 */
+.container {
+    display: grid;
+    grid-template-columns: repeat(15, 100px);
+    gap: 4px;
+}
+
+/* 2 */
+.container span {
+    position: relative;
+    width: 100px;
+    height: 70px;
+    background: #111;
+    z-index: 10;
+}
+
+/* 6 */
+.container span::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,0.05);
+}
+
+/* 3 */
+.cursor {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: #0f0;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+    border-radius: 50%;
+    animation: animate 4s linear infinite;
+
+    /* 5 */
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0f0;
+        border-radius: 50%;
+    }
+}
+
+/* 4 */
+@keyframes animate {
+    0% {
+        filter: hue-rotate(0) blur(50px);
+    }100% {
+        filter: hue-rotate(360deg) blur(50px);
+    }
+}
+
+
+.container2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+
+    & form {
+        width: 400px;
+        background: #111;
+        backdrop-filter: blur(10px);
+        padding: 40px 20px;
+        border-radius: 5px;
+
+        & h2 {
+            color: #fff;
+            text-align: center;
+            font-family: Open Sans, sans-serif;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        & > input {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 15px;
+            outline: none;
+            border: none;
+            background: rgba(255,255,255,.1);
+            border-radius: 3px;
+            color: #fff;
+        }
+
+        & > input::placeholder {
+            color: #fff;
+            font-size: 1.05em;
+        }
+
+        & > input[type="submit"] {
+            font-size: 1em;
+            background: #0f0;
+            color: #000;
+            cursor: pointer;
+            font-weight: 550;
+        }
+
+        & .sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+
+            & a {
+                text-decoration: none;
+                font-family: Open Sans, sans-serif;
+                color: #fff;
+                font-size: 0.8em;
+            }
+
+            & a:first-child {
+                color: #fff;
+                font-size: 0.9em;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            & a:last-child {
+                background: #0f0;
+                padding: 10px 15px;
+                border-radius: 3px;
+                color: #000;
+                font-weight: 550;
+            }
+        }
+    }
+}

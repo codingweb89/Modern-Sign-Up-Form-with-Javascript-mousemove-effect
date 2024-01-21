@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Login Form</title>
+</head>
+<body>
+    
+    <div class="container"></div>
+    <div class="cursor"></div>
+
+    <!--O2-->
+    <div class="container2">
+        <form>
+            <h2>Sign Up</h2>
+            <input type="email" placeholder="Email Address">
+            <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <input type="submit" value="Create Account">
+            <div class="sub">
+                <a href="">Already had an account?</a>
+                <a href="">Login</a>
+            </div>
+        </form>
+    </div>
+
+
+<script>
+
+    //1
+    for(var i = 0; i < 250; i++) {
+        let box = document.createElement("span");
+        document.querySelector(".container").appendChild(box)
+    }
+
+    //2
+    let cursor = document.querySelector(".cursor");
+    window.addEventListener("mousemove", e => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px"
+    })
+
+
+</script>
+
+
+</body>
+</html>
